@@ -1,8 +1,10 @@
 package com.craftworks.codingchallenge.domain;
 
+import javax.persistence.Entity;
 import java.time.LocalDateTime;
 import java.util.Objects;
 import java.util.UUID;
+
 
 public class TaskDTO {
     private UUID id;

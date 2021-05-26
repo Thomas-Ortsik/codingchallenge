@@ -25,7 +25,10 @@ public class Task {
     private String status;
     private String createdBy;
 
-    public Task(UUID id, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime dueDate, LocalDateTime resolvedAt, String title, String description, String priority, String status, String createdBy) {
+    public Task() {
+    }
+
+    public Task(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime dueDate, LocalDateTime resolvedAt, String title, String description, String priority, String status, String createdBy) {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.dueDate = dueDate;
@@ -37,7 +40,17 @@ public class Task {
         this.createdBy = createdBy;
     }
 
-    public Task() {
+    public Task(UUID id, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime dueDate, LocalDateTime resolvedAt, String title, String description, String priority, String status, String createdBy) {
+        this.id = id;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+        this.dueDate = dueDate;
+        this.resolvedAt = resolvedAt;
+        this.title = title;
+        this.description = description;
+        this.priority = priority;
+        this.status = status;
+        this.createdBy = createdBy;
     }
 
     public UUID getId() {

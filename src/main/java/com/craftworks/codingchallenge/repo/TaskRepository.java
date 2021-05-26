@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Repository
 public interface TaskRepository extends JpaRepository<Task, UUID> {
-    List<Task> findByOrderByCreatedatAsc();
-    Optional<Task> findFirstByOrderByCreatedatAsc();
+    List<Task> findByOrderByCreatedAtAsc();
+    Optional<Task> findFirstByOrderByCreatedAtAsc();
 
 }

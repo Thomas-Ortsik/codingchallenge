@@ -26,11 +26,11 @@ public class TaskManagerService {
 
 
     public List<TaskDTO> getAll(){
-        return taskRepository.findByOrderByCreatedatAsc().stream().map(translator::toTaskDTO).collect(Collectors.toList());
+        return taskRepository.findByOrderByCreatedAtAsc().stream().map(translator::toTaskDTO).collect(Collectors.toList());
     }
 
     public Optional<TaskDTO> getFirstInQueue(){
-        Optional<Task> oFirstTask = taskRepository.findFirstByOrderByCreatedatAsc();
+        Optional<Task> oFirstTask = taskRepository.findFirstByOrderByCreatedAtAsc();
         if (oFirstTask.isEmpty()){
             return Optional.empty();
         }
