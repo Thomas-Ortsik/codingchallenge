@@ -19,8 +19,7 @@ public class TaskDTO {
     public TaskDTO() {
     }
 
-    public TaskDTO(UUID id, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime dueDate, LocalDateTime resolvedAt, String title, String description, String priority, String status, String createdBy) {
-        this.id = id;
+    public TaskDTO(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime dueDate, LocalDateTime resolvedAt, String title, String description, String priority, String status, String createdBy) {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.dueDate = dueDate;
@@ -32,7 +31,8 @@ public class TaskDTO {
         this.createdBy = createdBy;
     }
 
-    public TaskDTO(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime dueDate, LocalDateTime resolvedAt, String title, String description, String priority, String status, String createdBy) {
+    public TaskDTO(UUID id, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime dueDate, LocalDateTime resolvedAt, String title, String description, String priority, String status, String createdBy) {
+        this.id = id;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.dueDate = dueDate;

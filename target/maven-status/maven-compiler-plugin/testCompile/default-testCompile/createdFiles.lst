@@ -1,0 +1,3 @@
+com\craftworks\codingchallenge\CodingchallengeApplicationTests.class
+com\craftworks\codingchallenge\endpoint\TaskManagerEndpointTest.class
+com\craftworks\codingchallenge\service\TaskManagerServiceTest.class

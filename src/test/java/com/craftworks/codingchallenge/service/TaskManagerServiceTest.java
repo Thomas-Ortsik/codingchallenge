@@ -8,6 +8,9 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+
+import java.util.UUID;
+
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 class TaskManagerServiceTest {
 
@@ -16,8 +19,9 @@ class TaskManagerServiceTest {
     @MockBean
     TaskRepository repository;
 
-    TaskDTO testTaskDTO = new TaskDTO();
-    Task testTask = new Task();
+    UUID testUUID = UUID.randomUUID();
+    TaskDTO testTaskDTO = new TaskDTO(testUUID, null, null, null, null, "test", "test","test", "test","test");
+    Task testTask = new Task(testUUID, null, null, null, null, "test", "test","test", "test","test");
     @Test
     void getAll() {
         service.getAll();

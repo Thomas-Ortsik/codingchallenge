@@ -1,0 +1,8 @@
+com\craftworks\codingchallenge\CodingchallengeApplication.class
+com\craftworks\codingchallenge\domain\TaskDTO.class
+com\craftworks\codingchallenge\repo\TaskRepository.class
+com\craftworks\codingchallenge\service\RandomTaskScheduler.class
+com\craftworks\codingchallenge\service\TaskManagerService.class
+com\craftworks\codingchallenge\domain\Task.class
+com\craftworks\codingchallenge\translator\TaskTranslator.class
+com\craftworks\codingchallenge\endpoint\TaskManagerEndpoint.class
