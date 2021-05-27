@@ -31,16 +31,26 @@ public class TaskManagerService {
 
     public Optional<TaskDTO> getFirstInQueue(){
         Optional<Task> oFirstTask = taskRepository.findFirstByOrderByCreatedAtAsc();
-        if (oFirstTask.isEmpty()){
+
+        if (oFirstTask.isEmpty())
             return Optional.empty();
-        }
-        else {
-            Task firstTask = oFirstTask.get();
-            TaskDTO firstTaskDTO = translator.toTaskDTO(firstTask);
-            return Optional.of(firstTaskDTO);
-        }
+
+        Task firstTask = oFirstTask.get();
+        TaskDTO firstTaskDTO = translator.toTaskDTO(firstTask);
+        return Optional.of(firstTaskDTO);
     }
 
+    public Optional<TaskDTO> getTaskFromUUID(int id){
+        Task requestedTask = taskRepository.getById(id);
+
+        if (requestedTask == null)
+            return Optional.empty();
+
+        TaskDTO requestedTaskDTO = translator.toTaskDTO(requestedTask);
+        return Optional.of(requestedTaskDTO);
+    }
+
+    // ich gehe hier davon aus, dass wir eine Task mit aktuellem "created/updatedAt" bekommen
     public TaskDTO saveNewTask(TaskDTO newTaskDTO){
         Task newTask = translator.toTask(newTaskDTO);
         taskRepository.save(newTask);
@@ -48,17 +58,18 @@ public class TaskManagerService {
         return newTaskDTO;
     }
 
+    // siehe oben, in dem fall halt nur updatedAt.
+    // Wäre hier eine Kontrolle ob eine Task mit jüngerem updatedAt field bereits gespeichert ist, sinnvoll?
     public Optional<TaskDTO>  updateTask(TaskDTO updatedTaskDTO){
         Task updatedTask = translator.toTask(updatedTaskDTO);
         Optional<Task> oTask = taskRepository.findById(updatedTask.getId());
-        if (oTask.isEmpty()){
+
+        if (oTask.isEmpty())
             return Optional.empty();
-        }
-        else {
-            taskRepository.save(updatedTask);
-            updatedTaskDTO = translator.toTaskDTO(updatedTask);
-            return Optional.of(updatedTaskDTO);
-        }
+
+        taskRepository.save(updatedTask);
+        updatedTaskDTO = translator.toTaskDTO(updatedTask);
+        return Optional.of(updatedTaskDTO);
     }
 
     public void deleteTask(TaskDTO taskToDeleteDTO){

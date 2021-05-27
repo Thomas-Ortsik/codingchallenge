@@ -4,5 +4,7 @@ E:\Projects\Java\initial spring boot projects\craftworks\codingchallenge\src\mai
 E:\Projects\Java\initial spring boot projects\craftworks\codingchallenge\src\main\java\com\craftworks\codingchallenge\service\RandomTaskScheduler.java
 E:\Projects\Java\initial spring boot projects\craftworks\codingchallenge\src\main\java\com\craftworks\codingchallenge\translator\TaskTranslator.java
 E:\Projects\Java\initial spring boot projects\craftworks\codingchallenge\src\main\java\com\craftworks\codingchallenge\endpoint\TaskManagerEndpoint.java
+E:\Projects\Java\initial spring boot projects\craftworks\codingchallenge\src\main\java\com\craftworks\codingchallenge\enums\Priority.java
 E:\Projects\Java\initial spring boot projects\craftworks\codingchallenge\src\main\java\com\craftworks\codingchallenge\service\TaskManagerService.java
 E:\Projects\Java\initial spring boot projects\craftworks\codingchallenge\src\main\java\com\craftworks\codingchallenge\domain\Task.java
+E:\Projects\Java\initial spring boot projects\craftworks\codingchallenge\src\main\java\com\craftworks\codingchallenge\enums\Status.java

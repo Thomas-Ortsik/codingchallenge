@@ -2,6 +2,8 @@ package com.craftworks.codingchallenge.service;
 
 import com.craftworks.codingchallenge.domain.Task;
 import com.craftworks.codingchallenge.domain.TaskDTO;
+import com.craftworks.codingchallenge.enums.Priority;
+import com.craftworks.codingchallenge.enums.Status;
 import com.craftworks.codingchallenge.repo.TaskRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -21,9 +23,10 @@ class TaskManagerServiceTest {
     @MockBean
     TaskRepository repository;
 
-    UUID testUUID = UUID.randomUUID();
-    TaskDTO testTaskDTO = new TaskDTO(testUUID, null, null, null, null, "test", "test","test", "test","test");
-    Task testTask = new Task(testUUID, null, null, null, null, "test", "test","test", "test","test");
+
+    TaskDTO testTaskDTO = new TaskDTO(1, null, null, null, null, "test", "test", Priority.MEDIUM, Status.NEW,"test");
+    Task testTask = new Task(1, null, null, null, null, "test", "test",Priority.MEDIUM, Status.NEW,"test");
+    Task failedTask = null;
     @Test
     void getAll() {
         service.getAll();

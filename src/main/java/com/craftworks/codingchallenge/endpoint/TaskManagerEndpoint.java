@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/taskmanager")
@@ -24,6 +25,16 @@ public class TaskManagerEndpoint {
         return taskManagerService.getAll();
     }
 
+    @GetMapping("/{id}")
+    TaskDTO fetchSpecificTask(@PathVariable int id){
+        Optional<TaskDTO> oTaskDTO = taskManagerService.getTaskFromUUID(id);
+        if (oTaskDTO.isEmpty())
+            return null;
+        return oTaskDTO.get();
+    }
+
+    // hier gabs etwas verwirrung von meiner Seite. Ursprünglich hats ja geheißen FIFO, auf nachfrage war aber dann von ID die Rede.
+    // ich lass den endpoint fürs FIFO prinzip mal so stehen, würd mich aber über Feedback freuen.
     @GetMapping("/next-task")
     TaskDTO fetchNextTask(){
         Optional<TaskDTO> oTaskDTO = taskManagerService.getFirstInQueue();
@@ -36,12 +47,12 @@ public class TaskManagerEndpoint {
     }
 
     @PostMapping
-    TaskDTO createTask(TaskDTO newTask){
+    TaskDTO createTask(@RequestBody TaskDTO newTask){
         return taskManagerService.saveNewTask(newTask);
     }
 
     @PutMapping
-    TaskDTO updateTask(TaskDTO taskToUpdate){
+    TaskDTO updateTask(@RequestBody TaskDTO taskToUpdate){
         Optional<TaskDTO> oUpdatedTask = taskManagerService.updateTask(taskToUpdate);
         if (oUpdatedTask.isEmpty()){
             return null;
@@ -52,7 +63,7 @@ public class TaskManagerEndpoint {
     }
 
     @DeleteMapping
-    void deleteTask(TaskDTO taskToDelete){
+    void deleteTask(@RequestBody TaskDTO taskToDelete){
         taskManagerService.deleteTask(taskToDelete);
     }
 

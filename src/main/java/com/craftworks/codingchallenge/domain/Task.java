@@ -2,6 +2,9 @@ package com.craftworks.codingchallenge.domain;
 
 
 
+import com.craftworks.codingchallenge.enums.Priority;
+import com.craftworks.codingchallenge.enums.Status;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
@@ -14,21 +17,21 @@ public class Task {
     @Id
     @SequenceGenerator(name = "task_sequence", sequenceName = "task_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "task_sequence")
-    private UUID id;
+    private int id;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime dueDate;
     private LocalDateTime resolvedAt;
     private String title;
     private String description;
-    private String priority;
-    private String status;
+    private Priority priority;
+    private Status status;
     private String createdBy;
 
     public Task() {
     }
 
-    public Task(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime dueDate, LocalDateTime resolvedAt, String title, String description, String priority, String status, String createdBy) {
+    public Task(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime dueDate, LocalDateTime resolvedAt, String title, String description, Priority priority, Status status, String createdBy) {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.dueDate = dueDate;
@@ -40,7 +43,7 @@ public class Task {
         this.createdBy = createdBy;
     }
 
-    public Task(UUID id, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime dueDate, LocalDateTime resolvedAt, String title, String description, String priority, String status, String createdBy) {
+    public Task(int id, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime dueDate, LocalDateTime resolvedAt, String title, String description, Priority priority, Status status, String createdBy) {
         this.id = id;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -53,7 +56,7 @@ public class Task {
         this.createdBy = createdBy;
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
@@ -101,19 +104,19 @@ public class Task {
         this.description = description;
     }
 
-    public String getPriority() {
+    public Priority getPriority() {
         return priority;
     }
 
-    public void setPriority(String priority) {
+    public void setPriority(Priority priority) {
         this.priority = priority;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 

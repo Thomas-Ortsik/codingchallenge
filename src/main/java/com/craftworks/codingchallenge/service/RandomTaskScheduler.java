@@ -33,5 +33,6 @@ public class RandomTaskScheduler {
                 null,
                 "RandomTaskScheduler"
         );
+        taskManagerService.saveNewTask(newTaskDTO);
     }
 }

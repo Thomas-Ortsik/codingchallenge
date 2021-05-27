@@ -1,27 +1,28 @@
 package com.craftworks.codingchallenge.domain;
 
-import javax.persistence.Entity;
+import com.craftworks.codingchallenge.enums.Priority;
+import com.craftworks.codingchallenge.enums.Status;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.UUID;
 
 
 public class TaskDTO {
-    private UUID id;
+    private int id;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime dueDate;
     private LocalDateTime resolvedAt;
     private String title;
     private String description;
-    private String priority;
-    private String status;
+    private Priority priority;
+    private Status status;
     private String createdBy;
 
     public TaskDTO() {
     }
 
-    public TaskDTO(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime dueDate, LocalDateTime resolvedAt, String title, String description, String priority, String status, String createdBy) {
+    public TaskDTO(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime dueDate, LocalDateTime resolvedAt, String title, String description, Priority priority, Status status, String createdBy) {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.dueDate = dueDate;
@@ -33,7 +34,7 @@ public class TaskDTO {
         this.createdBy = createdBy;
     }
 
-    public TaskDTO(UUID id, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime dueDate, LocalDateTime resolvedAt, String title, String description, String priority, String status, String createdBy) {
+    public TaskDTO(int id, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime dueDate, LocalDateTime resolvedAt, String title, String description, Priority priority, Status status, String createdBy) {
         this.id = id;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -59,11 +60,11 @@ public class TaskDTO {
         return Objects.hash(id, createdAt, updatedAt, dueDate, resolvedAt, title, description, priority, status, createdBy);
     }
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -115,19 +116,19 @@ public class TaskDTO {
         this.description = description;
     }
 
-    public String getPriority() {
+    public Priority getPriority() {
         return priority;
     }
 
-    public void setPriority(String priority) {
+    public void setPriority(Priority priority) {
         this.priority = priority;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
